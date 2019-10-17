@@ -1,0 +1,429 @@
+html body {
+  margin: 0 auto;
+  height: 100%;
+  font-family: "Maven Pro", sans-serif; }
+
+header {
+  margin: 0 auto;
+  height: 100vh;
+  background-image: url("../img/Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%; }
+  header nav ul {
+    display: flex;
+    margin: 0;
+    background-color: #15263e;
+    color: #ffffff;
+    justify-content: space-between;
+    padding: 2em;
+      padding-left: 5vw;
+      padding-right: 5vw; }
+    header nav ul li {
+      list-style: none;
+      padding: 0;
+      margin: 0; }
+      header nav ul li a {
+        font-size: 3em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #ffffff; }
+  header .name {
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 2em; }
+    header .name .john {
+      width: 555.9px;
+      height: 149.4px;
+      display: block;
+      background-image: url("../img/john.png");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: inherit; }
+    header .name h3 {
+      font-size: 50px;
+      line-height: 5.65;
+      letter-spacing: 64px; }
+    header .name h4 {
+      font-size: 25.3px;
+      line-height: 5.65;
+      letter-spacing: 1.9px; }
+    header .name button {
+      width: 214px;
+      height: 67px;
+      background-image: linear-gradient(41deg, #dbdbdb 27%, #290a59 27%, #a21af0 27%, #ff0072 73%);
+      padding: 1em;
+      border: none;
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: 1.35px;
+      text-align: center;
+      color: #ffffff; }
+
+main .about {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw;
+  background-color: #ffffff;
+  background-image: url("../img/author.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain; }
+  main .about .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .about .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .about h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .about .id {
+    width: 400px;
+    min-height: 300px;
+    text-align: right;
+    padding-right: 200px; }
+    main .about .id h2 {
+      color: #15263e;
+      font-size: 50px;
+      letter-spacing: 3.75px;
+      line-height: 2.26;
+      margin-right: 0.5em; }
+    main .about .id h3 {
+      color: #a21af0;
+      font-size: 25px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-right: 1em; }
+    main .about .id p {
+      width: 369px;
+      height: 344px;
+      font-size: 15px;
+      line-height: 2;
+      letter-spacing: 1.13px;
+      color: #494949; }
+  main .about .skills {
+    width: 400px;
+    height: auto;
+    flex-grow: 0.5; }
+main .contact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw;
+  background-color: #dcdcde; }
+  main .contact .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .contact .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .contact h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .contact .item {
+    margin: 1em;
+    padding: 5em;
+    flex-grow: 2; }
+main .services {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw;
+  padding: 5em; }
+  main .services .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .services .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .services h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .services .item {
+    width: 400px;
+    flex-grow: 2;
+    margin: 1em;
+    min-height: 150px; }
+main .testimonial {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw;
+  background-image: url("../img/mountain.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  color: #ffffff;
+  height: 70vh; }
+  main .testimonial .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .testimonial .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .testimonial h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .testimonial .quote {
+    width: 30em;
+    text-align: right;
+    line-height: 1.5em; }
+  main .testimonial .babka {
+    width: 50%; }
+main .portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw; }
+  main .portfolio .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .portfolio .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .portfolio h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .portfolio .portfolioMenu {
+    min-height: 60vh;
+    flex-grow: 0.5; }
+    main .portfolio .portfolioMenu li {
+      list-style: none;
+      text-align: left;
+      padding: 0.8em;
+      margin-left: 10em;
+      font-size: 22px;
+      color: #4d4d4d; }
+      main .portfolio .portfolioMenu li:first-child {
+        color: #a91aef; }
+  main .portfolio .grid {
+    display: flex;
+    width: 700px;
+    flex-wrap: wrap;
+    flex: 2 1 auto;
+    justify-content: space-around;
+    height: 60vh; }
+    main .portfolio .grid .item {
+      margin: 10px;
+      width: 150px;
+      height: 100px;
+      background-color: yellow; }
+main .experience {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw;
+  background-image: linear-gradient(40deg, #dbdbdb 13%, #290a59 13%, #a21af0 13%, #ff0072 87%); }
+  main .experience .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .experience .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .experience h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .experience .exp_item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5vw;
+    padding: 2em; }
+    main .experience .exp_item .item {
+      min-height: 10px;
+      min-width: 300px;
+      text-align: center;
+      font-family: "Maven Pro", sans-serif;
+      padding: 10px;
+      margin: 1em;
+      flex-grow: 2; }
+    main .experience .exp_item .first {
+      min-width: 100%;
+      padding-top: 0.5em;
+      margin-top: 0; }
+    main .experience .exp_item h3 {
+      text-transform: uppercase;
+      padding-top: 1em;
+      font-size: 50px; }
+    main .experience .exp_item .work {
+      width: 250px; }
+    main .experience .exp_item .work_desc {
+      width: 50%; }
+main .blog {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw; }
+  main .blog .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .blog .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .blog h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .blog .blogitem {
+    width: 300px;
+    flex-grow: 2 2 0;
+    text-align: left;
+    font-size: 1.5em; }
+    main .blog .blogitem img {
+      max-width: 100%;
+      height: auto; }
+    main .blog .blogitem h5 {
+      color: #929292;
+      text-transform: uppercase;
+      padding-left: 30px;
+      padding-right: 10px; }
+    main .blog .blogitem h6 {
+      color: #000000;
+      padding-left: 30px;
+      padding-right: 10px; }
+    main .blog .blogitem p {
+      color: #494949;
+      padding-left: 30px;
+      padding-lefrightt: 10px; }
+main .email {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5vw;
+  min-height: 300px;
+  background-image: url("../img/map.png");
+  background-repeat: no-repeat;
+  background-position: center bottom; }
+  main .email .item {
+    min-height: 10px;
+    min-width: 300px;
+    text-align: center;
+    font-family: "Maven Pro", sans-serif;
+    padding: 10px;
+    margin: 1em;
+    flex-grow: 2; }
+  main .email .first {
+    min-width: 100%;
+    padding-top: 0.5em;
+    margin-top: 0; }
+  main .email h3 {
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 50px; }
+  main .email .board {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5vw;
+    background-color: #15263e;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color: #ffffff; }
+    main .email .board .item {
+      min-height: 10px;
+      min-width: 300px;
+      text-align: center;
+      font-family: "Maven Pro", sans-serif;
+      padding: 10px;
+      margin: 1em;
+      flex-grow: 2; }
+    main .email .board .first {
+      min-width: 100%;
+      padding-top: 0.5em;
+      margin-top: 0; }
+    main .email .board h3 {
+      text-transform: uppercase;
+      padding-top: 1em;
+      font-size: 50px; }
+    main .email .board .item {
+      width: 300px;
+      height: 100px;
+      margin: 10px; }
+    main .email .board .first {
+      width: 800px;
+      text-align: center; }
+    main .email .board .last {
+      width: 800px;
+      height: 100%; }
+      main .email .board .last button {
+        border: none;
+        color: #ffffff;
+        font-size: 18px;
+        text-transform: uppercase;
+        width: 214px;
+        height: 67px;
+        background-image: linear-gradient(41deg, #dbdbdb 27%, #290a59 27%, #a21af0 27%, #ff0072 73%); }
+
+footer {
+  height: 80px;
+  padding-top: 3em;
+  font-family: AvantGardeCE;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  font-size: 20px;
+  text-align: center;
+  color: #494949; }
+
+/*# sourceMappingURL=main.css.map */
