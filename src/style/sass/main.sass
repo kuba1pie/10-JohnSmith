@@ -1,86 +1,56 @@
+@font-face
+    font-family: Avantgarde
+    src: url("avant.ttf") format("opentype")
 @import full.sass
-//@import grid.sass
+@import 'mixins'
 $margin: 5vw
 $flexboxitem_minwidth: 300px
-@mixin flexbox
-    display: flex
-    flex-wrap: wrap
-    flex-direction: row
-    justify-content: space-around
-    padding: $margin
-    .item
-        min-height: 10px
-        min-width: $flexboxitem_minwidth
-        text-align: center
-        font-family: 'Maven Pro', sans-serif
-        padding: 10px
-        margin: 1em
-        flex-grow: 2
-    .first
-        min-width: 100%
-        padding-top: 0.5em
-        margin-top: 0
-    h3
-        text-transform: uppercase
-        padding-top: 1em
-        font-size: 50px
+$pink: #ff0072
+$violet: #a31aef
 html body
     margin: 0 auto
-    height: 100%
-    font-family: 'Maven Pro', sans-serif
+    font-family: 'Avantgarde'
 header
-    margin: 0 auto
-    height: 100vh
-    background:
-        image: url('../img/Background.png')
-        size: cover
-        repeat: no-repeat
-        position: 50%
-    nav ul
+    color: #ffffff
+    nav
+        height: 50px
         display: flex
-        margin: 0
         background-color: #15263e
-        color: #ffffff
-        justify-content: space-between
-        padding: 2em
-            left: $margin
-            right: $margin
-        li
-            list-style: none
-            padding: 0
-            margin: 0
-            a
-                font:
-                    size: 3em
-                text:
-                    transform: uppercase
-                    decoration: none
-                color: #ffffff
+        justify-content: space-around
+        align-items: center
+        a
+            font:
+                size: 36px
+            text:
+                transform: uppercase
+                decoration: none
+            color: #ffffff
+            &:hover
+                color: $pink
     .name
-        color: white
-        text-transform: capitalize
-        text-align: center
-        font-size: 2em
-        .john
-            width: 555.9px
-            height: 149.4px
-            display: block
-            background:
-                image: url('../img/john.png')
-                repeat: no-repeat
-                position: center bottom
-                size: inherit
+        text-transform: uppercase
+        display: flex
+        min-height: calc(100vh - 50px)
+        flex-direction: column
+        justify-content: space-around
+        background:
+            image: url('../img/Background.png')
+            size: cover
+            repeat: no-repeat
         h3
             font-size: 50px
-            line-height: 5.65
             letter-spacing: 64px
+            margin: 0 auto
         h4
-            font-size: 25.3px
-            line-height: 5.65
+            font-size: 25px
             letter-spacing: 1.9px
+            margin: 0 auto
+        p
+            margin: 0 auto
         button
             width: 214px
             height: 67px
+            margin: 0 auto
             background-image: linear-gradient(41deg, #dbdbdb 27%, #290a59 27%, #a21af0 27%, #ff0072 73%)
             padding: 1em
             border: none
@@ -89,168 +59,206 @@ header
             letter-spacing: 1.35px
             text-align: center
             color: #ffffff
-
 main
+    section
+        padding: 2em
+    .title
+        text-align: center
+        h3
+            font-size: 50px
+            letter-spacing: 15px
+            text-transform: uppercase
+        p
+            font-size: 18px
     .about
-        @include flexbox
         background-color: #ffffff
         background:
             image: url('../img/author.png')
             repeat: no-repeat
             position: center bottom
             size: contain
+        display: grid
+        grid-template-columns: 1fr 400px 1fr 
+        margin: 0 auto
         .id
-            width: 400px
-            min-height: 300px
+            grid-column: 1
             text-align: right
-            padding-right: 200px
+            margin-left: 20%
             h2
                 color: #15263e
                 font-size: 50px
                 letter-spacing: 3.75px
                 line-height: 2.26
-                margin-right: 0.5em
+                margin-right: 0
             h3
                 color: #a21af0
                 font-size: 25px
                 letter-spacing: 1.5px
                 text-transform: uppercase
-                margin-right: 1em
+                margin-right: 0
             p
-                width: 369px
-                height: 344px
                 font-size: 15px
                 line-height: 2
                 letter-spacing: 1.13px
                 color: #494949
+                padding-bottom: 100px
         .skills
-            width: 400px
-            height: auto
-            flex-grow: 0.5
+            margin: 20%
+            text-align: center
+            grid-column: 3
+            color: #333333
     .contact
-        @include flexbox
+        display: flex
+        justify-content: space-between
         background-color: #dcdcde
-        .item
-            margin: 1em
-            padding: 5em
-            flex-grow: 2
+        padding: 2em 10%
     .services
-        @include flexbox
-        padding: 5em
-        .item 
-            width: 400px
-            flex-grow: 2
-            margin: 1em
-            min-height: 150px
+        display: grid
+        .title
+            grid-row: 1
+            margin: 0 auto
+            text-align: center
+        .wrapper
+            grid-row: 2
+            display: flex
+            flex-wrap: wrap
+            margin: 2em 10%
+            justify-content: space-between
+            .item 
+                width: 400px
+                margin: 1em auto
+                text-align: center
+                .h2
+                    text-transform: capitalize
     .testimonial
-        @include flexbox
         background:
             image: url('../img/mountain.png')
             size: cover
             repeat: no-repeat
             position: 50%
         color: #ffffff
-        height: 70vh
+        display: grid
+        grid-template-columns: 4fr 1fr 2fr
+        grid-template-rows: auto auto
+        .title
+            grid-row: 1
+            grid-column: 1/4
         .quote
-            width: 30em
+            grid-row: 2
+            grid-column: 1
             text-align: right
             line-height: 1.5em
-        .babka
-            width: 50%
+            p
+                font-size: 15px
+                padding: 0 2em
+        .photo
+            grid-row: 2
+            grid-column: 2
+            img
+                width: 100px
+                margin: 0 auto
+                display: block
+        .text
+            grid-row: 2
+            grid-column: 3
+            span
+                display: block
+                text-align: center
+            .name
+                font-size: 35px
+                text-transform: uppercase
+            .graphic
+                font-size: 15px
+                color: $violet
     .portfolio
-        @include flexbox
+        display: grid 
+        grid-template-columns: 300px 1fr
+        padding: 2em 10%
+        .title
+            grid-row: 1
+            grid-column: 1/3
         .portfolioMenu
-            min-height: 60vh
-            flex-grow: 0.5
+            grid-column: 1
+            grid-row: 2
             li
                 list-style: none
                 text-align: left
                 padding: 0.8em
-                margin-left: 10em
                 font-size: 22px
                 color: #4d4d4d
                 &:first-child
                     color: #a91aef
-        .grid
+        .wrapper
+            grid-column: 2
+            grid-row: 2
             display: flex
-            width: 700px
             flex-wrap: wrap
-            flex: 2 1 auto
-            justify-content: space-around
-            height: 60vh
+            justify-content: space-between
+            padding: 2em
             .item
                 margin: 10px
                 width: 150px
                 height: 100px
                 background-color: yellow
     .experience
-        @include flexbox
         background-image: linear-gradient(40deg, #dbdbdb 13%, #290a59 13%, #a21af0 13%, #ff0072 87%)
+        color: #ffffff
         .exp_item
-            @include flexbox
+            display: flex
             padding: 2em
+            margin: 0 auto
+            width: auto
             .work
-                width: 250px
+                margin-left: 400px
             .work_desc
-                width: 50%
+                margin: 1em 5em
+                max-width: 600px
     .blog
-        @include flexbox
-        .blogitem
-            width: 300px
-            flex-grow: 2 2 0
-            text-align: left
-            font-size: 1.5em
-            img
-                max-width: 100%
-                height: auto
-            h5
-                color: #929292
-                text-transform: uppercase
-                padding-left: 30px
-                padding-right: 10px
-            h6
-                color: #000000
-                padding-left: 30px
-                padding-right: 10px
-            p
-                color: #494949
-                padding-left: 30px
-                padding-lefrightt: 10px
-
+        .wrapper
+            display: flex
+            justify-content: space-between
+            width: 80%
+            margin: 0 auto
+            flex-wrap: wrap
+            .item
+                min-width: 300px
+                max-width: 400px
+                text-align: left
+                padding: 1em
+                font-size: 1.5em
+                margin: 0 auto
+                img
+                    max-width: 100%
+                    height: auto
+                h5
+                    color: #929292
+                    text-transform: uppercase
+                p
+                    color: #494949
     .email
-        @include flexbox
-        min-height: 300px
         background:
             image: url('../img/map.png')
             repeat: no-repeat
             position: center bottom
         .board
-            @include flexbox
             background-color: #15263e
-            margin-top: 100px
-            margin-bottom: 100px
             color: #ffffff
-            .item
-                width: 300px
-                height: 100px
-                margin: 10px
-            .first
-                width: 800px
-                text-align: center
-            .last
-                width: 800px
-                height: 100%
-                button
-                    border: none
-                    color: #ffffff
-                    font-size: 18px
-                    text-transform: uppercase
-                    width: 214px
-                    height: 67px
-                    background-image: linear-gradient(41deg, #dbdbdb 27%, #290a59 27%, #a21af0 27%, #ff0072 73%)
+            display: flex
+            flex-direction: column
+            .title
+            .form
+                margin: 2em
+            button
+                margin: 2em auto
+                border: none
+                color: #ffffff
+                font-size: 18px
+                text-transform: uppercase
+                width: 214px
+                height: 67px
+                background-image: linear-gradient(41deg, #dbdbdb 27%, #290a59 27%, #a21af0 27%, #ff0072 73%)
 footer
-    height: 80px
-    padding-top: 3em
+    margin: 3em auto
     font:
         family: AvantGardeCE
         weight: normal
@@ -260,3 +268,5 @@ footer
     text-align: center
     color: #494949
 
+@media only screen and (max-width: 1230px)
+    @import 'mobile.sass'
