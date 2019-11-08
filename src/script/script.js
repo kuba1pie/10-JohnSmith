@@ -34,9 +34,10 @@ function portfolio(){
     } 
     filter()
 }
-function addItem(wrapper, item, id, cla, filter){
+function addItem(wrapper, item, id, cla, filter, bg){
     let el = document.createElement("div")
     el.classList.add(cla)
+    el.style.backgroundImage = "url('./src/style/"+ bg +".png')";
     el.id = id
     el.innerHTML = item
     el.addEventListener("click", filter);
@@ -62,9 +63,10 @@ function print(wrapper, category){
         let itemName = portfolioData.categories[category].items[i].name
         let itemPhoto = portfolioData.categories[category].items[i].photo
         let itemDesc = portfolioData.categories[category].items[i].description
-        let divHtml="<h3>"+itemName+"</h3><img src=src/style/"+(i+1)+".png alt='"+itemName+"'><p>"+itemDesc+"</p>"
+        let divHtml="<div class='name'><h3>"+itemName+"</h3></div><div class='desc'><p>"+itemDesc+"</p></div>"
+        let bg = i+1
         let id = ''
         let cla = "item"
-        addItem(wrapper, divHtml, id, cla)
+        addItem(wrapper, divHtml, id, cla, null ,bg )
     }
 }

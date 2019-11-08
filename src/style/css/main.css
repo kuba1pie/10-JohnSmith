@@ -225,22 +225,37 @@ main .portfolio {
     grid-row: 2;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 2em; }
+    justify-content: space-around; }
     main .portfolio .wrapper .item {
       margin: 10px;
-      width: 40%;
-      min-height: 100px;
-      background-color: yellow;
+      width: 100%;
+      max-width: 500px;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       text-align: center;
-      display: grid; }
-      main .portfolio .wrapper .item img {
-        grid-row: 2;
-        width: 100%;
-        height: auto;
-        display: block; }
-      main .portfolio .wrapper .item h3 {
-        font-size: 25px; }
+      display: grid;
+      grid-template-rows: minmax(10%, auto) 1fr minmax(10%, auto); }
+      main .portfolio .wrapper .item .name {
+        opacity: 0;
+        grid-row: 1; }
+        main .portfolio .wrapper .item .name h3 {
+          font-size: 25px; }
+      main .portfolio .wrapper .item .desc {
+        opacity: 0;
+        grid-row: 3; }
+@keyframes hover {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+      main .portfolio .wrapper .item:hover .name, main .portfolio .wrapper .item:hover .desc {
+        animation-name: hover;
+        animation-duration: 20s;
+        background-color: #eeeeee; }
 main .experience {
   background-image: linear-gradient(40deg, #dbdbdb 13%, #290a59 13%, #a21af0 13%, #ff0072 87%);
   color: #ffffff; }
@@ -282,12 +297,35 @@ main .email {
   main .email .board {
     background-color: #15263e;
     color: #ffffff;
-    display: flex;
-    flex-direction: column; }
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1em; }
+    main .email .board .title {
+      grid-row: 1;
+      grid-column: 1/4; }
     main .email .board .form {
-      margin: 2em; }
+      grid-row: 2/4;
+      grid-column: 1/4;
+      width: 100%;
+      margin: 1em auto;
+      width: auto; }
+    main .email .board .name {
+      grid-column: 1;
+      grid-row: 2; }
+    main .email .board .phone {
+      grid-column: 2;
+      grid-row: 2; }
+    main .email .board .email {
+      grid-column: 3;
+      grid-row: 2; }
+    main .email .board .message {
+      grid-column: 1/4;
+      width: 100%;
+      height: 70px; }
     main .email .board button {
-      margin: 2em auto;
+      grid-column: 1/4;
+      grid-row: 5;
+      margin: 1em auto;
       border: none;
       color: #ffffff;
       font-size: 18px;
