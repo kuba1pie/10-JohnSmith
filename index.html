@@ -5,7 +5,7 @@
 	<meta name="description" content="Portfolio - Task 31 from Weekly Webdev Challange FB group">
 	<meta name="keywords" content="Random Porfolio">
 	<link rel="stylesheet" href="src/style/css/main.css">
-    <script src="src/script/script.js"></script>
+    <script src="dist/bundle.js"></script>
 </head>
 <body>
     <header>
@@ -20,6 +20,7 @@
         </nav>
         <section class="name" id="home">
             <p>Hello, I am</p>
+            <img src="src/style/img/john.png" alt="John">
             <h3>Smith</h3>
             <h4>I have more than 10 years of experience</h4>
             <button>Download CV</button>
@@ -70,7 +71,13 @@
             <div class="wrapper">
                 <div class="item">
                     <svg height="100" width="100">
-                        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff0072;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#a31aef;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        <circle cx="50" cy="50" r="40" fill="url(#grad2)" />
                     </svg> 
                     <h2>Best Service</h2>
                     <p>
@@ -79,17 +86,29 @@
                 </div>
                 <div class="item">
                         <svg height="100" width="100">
-                            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-                        </svg> 
+                                <defs>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ff0072;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#a31aef;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                            <circle cx="50" cy="50" r="40" fill="url(#grad2)" />
+                        </svg>  
                         <h2>Best Service</h2>
                         <p>
                             Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores. Ipsa dolor sit ile magnam maores.
                         </p>
                     </div>
                     <div class="item">
-                            <svg height="100" width="100">
-                                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-                            </svg> 
+                    <svg height="100" width="100">
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff0072;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#a31aef;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        <circle cx="50" cy="50" r="40" fill="url(#grad2)" />
+                    </svg>  
                             <h2>Best Service</h2>
                             <p>
                                 Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores. Ipsa dolor sit ile magnam maores.
@@ -115,14 +134,7 @@
                 <h3>Portfolio</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
             </div>
-            <div class="portfolioMenu">
-                    <li>ALL</li>
-                    <li>PSD DESIGN</li>
-                    <li>PRESENTATION</li>
-                    <li>WORK IDEAS</li>
-                    <li>MOCKUP</li>
-                    <li>LOGO</li>
-                    <li>ICONS</li>
+            <div class="portfolioMenu" id="portfolioMenu">
             </div>
             <div class="wrapper">
                 <div class="item"></div>
@@ -139,19 +151,19 @@
             <div class="title">                
                 <h3>Experience</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
-            <div class="exp_item">
+            <div class="item">
                 <div class="work">Personal advicser <br> 2015-2016</div>
                 <div class="work_desc">Lorem ipsum dolor sit amet, consectetur adipielit. Sunt sed ad possimus magm maiores.Ipa Lorem ipsum dolor sit amet, consectetur adiic Sunt sed ad posimus magnam maores. Ipsam as velt blanditiis debitis consequuntur mollita umenda nam obcaecati illo!</div>
             </div>
-            <div class="exp_item">
+            <div class="item">
                     <div class="work">Personal advicser <br> 2015-2016</div>
                     <div class="work_desc">Lorem ipsum dolor sit amet, consectetur adipielit. Sunt sed ad possimus magm maiores.Ipa Lorem ipsum dolor sit amet, consectetur adiic Sunt sed ad posimus magnam maores. Ipsam as velt blanditiis debitis consequuntur mollita umenda nam obcaecati illo!</div>
             </div>
-            <div class="exp_item">
+            <div class="item">
                     <div class="work">Personal advicser <br> 2015-2016</div>
                     <div class="work_desc">Lorem ipsum dolor sit amet, consectetur adipielit. Sunt sed ad possimus magm maiores.Ipa Lorem ipsum dolor sit amet, consectetur adiic Sunt sed ad posimus magnam maores. Ipsam as velt blanditiis debitis consequuntur mollita umenda nam obcaecati illo!</div>
             </div>
-            <div class="exp_item">
+            <div class="item">
                     <div class="work">Personal advicser <br> 2015-2016</div>
                     <div class="work_desc">Lorem ipsum dolor sit amet, consectetur adipielit. Sunt sed ad possimus magm maiores.Ipa Lorem ipsum dolor sit amet, consectetur adiic Sunt sed ad posimus magnam maores. Ipsam as velt blanditiis debitis consequuntur mollita umenda nam obcaecati illo!</div>
             </div>

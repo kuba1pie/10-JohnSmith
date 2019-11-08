@@ -1,0 +1,27 @@
+{
+  "name": "10-johnsmith",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuba1pie/10-JohnSmith.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuba1pie/10-JohnSmith/issues"
+  },
+  "homepage": "https://github.com/kuba1pie/10-JohnSmith#readme"
+}

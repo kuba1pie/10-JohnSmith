@@ -1,6 +1,6 @@
 @font-face
     font-family: Avantgarde
-    src: url("avant.ttf") format("opentype")
+    src: url('avant.ttf') format('opentype')
 @import full.sass
 @import 'mixins'
 $margin: 5vw
@@ -15,7 +15,7 @@ html
 header
     color: #ffffff
     nav
-        height: 50px
+        height: 60px
         width: 100%
         display: flex
         position: fixed
@@ -34,16 +34,23 @@ header
     .name
         text-transform: uppercase
         display: flex
-        min-height: 100vh
+        min-height: calc(100vh - 60px)
         flex-direction: column
         justify-content: space-around
         background:
             image: url('../img/Background.png')
             size: cover
             repeat: no-repeat
+            position: center
+        padding: 4em 2em
+        img
+            max-width: 80%
+            max-height: 150px
+            margin: 0 auto
         h3
             font-size: 50px
             letter-spacing: 64px
+            padding-left: 64px
             margin: 0 auto
         h4
             font-size: 25px
@@ -51,6 +58,7 @@ header
             margin: 0 auto
         p
             margin: 0 auto
+            font-size: 35px
         button
             width: 214px
             height: 67px
@@ -130,6 +138,10 @@ main
                 background-color: #bbb
                 border-radius: 50%
                 margin: 1em
+                text-align: center
+                display: flex
+                flex-direction: column
+                justify-content: space-around
             h3
                 grid: column 2
                 grid-row: 1
@@ -206,7 +218,9 @@ main
         .portfolioMenu
             grid-column: 1
             grid-row: 2
-            li
+            display: flex
+            flex-direction: column
+            div
                 list-style: none
                 text-align: left
                 padding: 0.8em
@@ -219,17 +233,17 @@ main
             grid-row: 2
             display: flex
             flex-wrap: wrap
-            justify-content: space-between
+            justify-content: space-around
             padding: 2em
             .item
                 margin: 10px
-                width: 150px
+                width: 40%
                 height: 100px
                 background-color: yellow
     .experience
         background-image: linear-gradient(40deg, #dbdbdb 13%, #290a59 13%, #a21af0 13%, #ff0072 87%)
         color: #ffffff
-        .exp_item
+        .item
             display: flex
             padding: 2em
             margin: 0 auto
