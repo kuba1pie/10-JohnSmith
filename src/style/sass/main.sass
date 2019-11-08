@@ -210,6 +210,7 @@ main
     .portfolio
         display: grid 
         grid-template-columns: 300px 1fr
+        grid-template-rows: 205px auto
         padding: 2em 10%
         min-height: 100vh
         .title
@@ -238,8 +239,18 @@ main
             .item
                 margin: 10px
                 width: 40%
-                height: 100px
+                min-height: 100px
                 background-color: yellow
+                text-align: center
+                display: grid
+                img
+                    grid-row: 2
+                    width: 100%
+                    height: auto
+                    display: block
+                h3
+                    font-size: 25px
+                p
     .experience
         background-image: linear-gradient(40deg, #dbdbdb 13%, #290a59 13%, #a21af0 13%, #ff0072 87%)
         color: #ffffff

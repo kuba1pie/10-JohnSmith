@@ -4,17 +4,17 @@
             "name": "Psd",
             "items": [
                 {
-                    "name": "home",
+                    "name": "Restaurant",
                     "photo": "212 555-1234",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
                 },
                 {
-                    "name": "index",
+                    "name": "Box",
                     "photo": "212 555-1234",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
                 },
                 {
-                    "name": "article",
+                    "name": "Article",
                     "photo": "212 555-1234",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
                 }
@@ -24,17 +24,17 @@
             "name":"Presenatation",
             "items": [
                 {
-                  "name": "home",
+                  "name": "homePres",
                   "photo": "212 555-1234",
                   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
                 },
                 {
-                  "name": "index",
+                  "name": "indexPres",
                   "photo": "212 555-1234",
                   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
                 },
                 {
-                  "name": "article",
+                  "name": "articlePres",
                   "photo": "212 555-1234",
                   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
                 }
@@ -44,17 +44,17 @@
             "name": "Work ideas",
             "items": [
               {
-                "name": "home",
+                "name": "homeWork",
                 "photo": "212 555-1234",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
               },
               {
-                "name": "index",
+                "name": "indexWork",
                 "photo": "212 555-1234",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
               },
               {
-                "name": "article",
+                "name": "articleWork",
                 "photo": "212 555-1234",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
               }
@@ -64,17 +64,17 @@
             "name":"Logo",
             "items": [
               {
-                "name": "home",
+                "name": "homeLogo",
                 "photo": "212 555-1234",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
               },
               {
-                "name": "index",
+                "name": "indexLogo",
                 "photo": "212 555-1234",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
               },
               {
-                "name": "article",
+                "name": "articleLogo",
                 "photo": "212 555-1234",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, urna eu congue convallis, justo nulla ornare erat, eu pellentesque felis nulla id nisi. "
               }
