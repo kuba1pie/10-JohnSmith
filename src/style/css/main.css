@@ -357,8 +357,10 @@ footer {
     background-position-x: 72%;
     padding: 2em 1em; }
     header .name h3 {
-      letter-spacing: 40px;
-      padding-left: 15px; }
+      letter-spacing: 10px;
+      line-height: initial;
+      padding-left: 10px;
+      font-size: 40px; }
     header .name h4 {
       text-align: center; }
     header .name img {
@@ -395,8 +397,10 @@ footer {
     margin: 0 auto;
     flex-wrap: wrap; }
     main .contact .item {
-      min-width: 400px;
-      margin: 0 auto; }
+      min-width: initial;
+      width: 100%;
+      margin: 0 auto;
+      grid-template-columns: 100px 1fr; }
   main .services .wrapper {
     margin: 0 auto; } }
 @media only screen and (max-width: 1230px) and (max-width: 500px) {
@@ -424,10 +428,11 @@ footer {
 @media only screen and (max-width: 1230px) {
   main .portfolio {
     padding: 1em;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto auto; }
+    grid-template-columns: 100%;
+    grid-template-rows: 120px auto; }
     main .portfolio .portfolioMenu {
-      grid-column: 1; }
+      grid-column: 1;
+      width: 100%; }
       main .portfolio .portfolioMenu div {
         margin: 0 auto; }
     main .portfolio .wrapper {
@@ -447,7 +452,8 @@ footer {
   main .blog .wrapper .item {
     text-align: center;
     padding: 0 1em;
-    margin: 0 auto; }
+    margin: 0 auto;
+    min-width: initial; }
   main section {
     padding: 1em;
     margin: 0 auto; } }

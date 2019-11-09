@@ -8,8 +8,10 @@ header
         background-position-x: 72%
         padding: 2em 1em
         h3
-            letter-spacing: 40px
-            padding-left: 15px
+            letter-spacing: 10px
+            line-height: initial
+            padding-left: 10px
+            font-size: 40px
         h4
             text-align: center
         img
@@ -48,8 +50,10 @@ main
         margin: 0 auto
         flex-wrap: wrap
         .item
-            min-width: 400px
+            min-width: initial
+            width: 100%
             margin: 0 auto
+            grid-template-columns: 100px 1fr
     .services
         .wrapper
             margin: 0 auto
@@ -77,10 +81,11 @@ main
                     margin: 1em auto
     .portfolio
         padding: 1em
-        grid-template-columns: auto 1fr
-        grid-template-rows: auto auto auto
+        grid-template-columns: 100%
+        grid-template-rows: 120px auto
         .portfolioMenu
             grid-column: 1
+            width: 100%
             div
                 margin: 0 auto
         .wrapper
@@ -104,6 +109,7 @@ main
                 text-align: center
                 padding: 0 1em
                 margin: 0 auto
+                min-width: initial
     section
         padding: 1em
         margin: 0 auto

@@ -1,8 +1,9 @@
 import portfolioData from './portfolio.json'
 window.onload = function() {
+    var x = window.matchMedia("(max-width: 1230px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes 
     
-    portfolio()
-
     window.onscroll = function (e) {  
         if (this.oldScroll > this.scrollY){
             navMenuShow();
@@ -26,6 +27,7 @@ function navMenuShow(){
 
 function portfolio(){
     let wrapperMenu = document.getElementById("portfolioMenu")
+    wrapperMenu.innerHTML=("")
     addItem(wrapperMenu, 'All', 'all', "all", filter)
     let i
     for (i = 0; i<portfolioData.categories.length; i++){
@@ -45,16 +47,22 @@ function addItem(wrapper, item, id, cla, filter, bg){
 }
 function filter(){
     let wrapper=document.getElementById("portfolioWrapper")
-    if (this == null || this.id == 'all'){
-        let i
-        let max=3
-        for (i=0; i<max; i++){
-            print(wrapper, i)
+    if (wrapper.classList.contains("mobile")){
+        console.log("mobile")
+
+    } else{
+        console.log("desktop")
+        if (this == null || this.id == 'all'){
+            let i
+            let max=3
+            for (i=0; i<max; i++){
+                print(wrapper, i)
+            }
+        } else {
+            wrapper.innerHTML=""
+            let category=this.id.replace("category_", "")
+            print(wrapper, category)
         }
-    } else {
-        wrapper.innerHTML=""
-        let category=this.id.replace("category_", "")
-        print(wrapper, category)
     }
 }
 function print(wrapper, category){
@@ -70,3 +78,16 @@ function print(wrapper, category){
         addItem(wrapper, divHtml, id, cla, null ,bg )
     }
 }
+
+function myFunction(x) {
+    if (x.matches) { // If media query matches
+      console.log('smol')
+      document.getElementById("portfolioWrapper").innerHTML=("")
+      document.getElementById("portfolioWrapper").classList.add("mobile")
+    } else {
+        console.log('big')
+        document.getElementById("portfolioWrapper").classList.remove("mobile")
+        portfolio();
+    }
+  }
+  
