@@ -1,8 +1,9 @@
 import portfolioData from './portfolio.json'
 window.onload = function() {
-    var x = window.matchMedia("(max-width: 1230px)")
-    myFunction(x) // Call listener function at run time
-    x.addListener(myFunction) // Attach listener function on state changes 
+    portfolioMenu();
+    let x = window.matchMedia("(max-width: 1230px)")
+    resize(x) // Call listener function at run time
+    x.addListener(resize) // Attach listener function on state changes 
     
     window.onscroll = function (e) {  
         if (this.oldScroll > this.scrollY){
@@ -14,27 +15,44 @@ window.onload = function() {
         } 
     }
 }
-
-function navMenuHide(){
-    document.getElementById("navMenu").classList.remove("animated", "slideInDown")
-    document.getElementById("navMenu").classList.add("animated", "slideOutUp", "delay-2s")
-    
+function resize(x) {
+    if (x.matches) { // If media query matches
+      console.log('smol')
+      let a = document.getElementById('portfolioWrapper')
+      if (a){
+          a.remove();
+      }
+    } else {
+        console.log('big')
+        let a = document.getElementById('portfolioWrapper')
+        if (a){
+            a.remove();
+            console.log('biggggg')
+            let wrapper = document.createElement("div")
+            wrapper.classList.add("wrapper")
+            wrapper.id='portfolioWrapper'
+            document.getElementById("portfolio").append(wrapper)
+            filter();
+        } else {
+            let wrapper = document.createElement("div")
+            wrapper.classList.add("wrapper")
+            wrapper.id='portfolioWrapper'
+            document.getElementById("portfolio").append(wrapper)
+            filter();
+        }    
+        
+    }
 }
-function navMenuShow(){
-    document.getElementById("navMenu").classList.remove("animated", "slideOutUp", "delay-2s")
-    document.getElementById("navMenu").classList.add("animated", "slideInDown")
-}
 
-function portfolio(){
+function portfolioMenu(){
     let wrapperMenu = document.getElementById("portfolioMenu")
     wrapperMenu.innerHTML=("")
-    addItem(wrapperMenu, 'All', 'all', "all", filter)
+    addItem(wrapperMenu, 'All', 'category_all', "all", filter)
     let i
     for (i = 0; i<portfolioData.categories.length; i++){
         let catName = portfolioData.categories[i].name
         addItem(wrapperMenu, catName, "category_"+i, "category", filter)
     } 
-    filter()
 }
 function addItem(wrapper, item, id, cla, filter, bg){
     let el = document.createElement("div")
@@ -46,13 +64,31 @@ function addItem(wrapper, item, id, cla, filter, bg){
     wrapper.appendChild(el)
 }
 function filter(){
-    let wrapper=document.getElementById("portfolioWrapper")
-    if (wrapper.classList.contains("mobile")){
-        console.log("mobile")
+    let b = document.getElementById('portfolioWrapper')
 
+    if(b){
+        if (this == null || this.id == 'category_all'){ // jeżeli nie ma kat. lub jest all
+            let i
+            let max=3
+            for (i=0; i<max; i++){
+                print(b, i)
+            }
+        } else { // jeżeli jest kategoria
+            document.getElementById('portfolioWrapper').innerHTML=""
+            let category=this.id.replace("category_", "")
+            print(b, category)
+        }
     } else{
-        console.log("desktop")
-        if (this == null || this.id == 'all'){
+        let a = document.getElementById("portfolioWrapper")
+        if (a) {
+            a.remove()
+        }
+        let wrapper = document.createElement("div")
+        wrapper.classList.add("wrapper")
+        wrapper.id='portfolioWrapper'
+        //wstawia wrapper za wybranym
+        this.parentNode.insertBefore(wrapper, this.nextSibling);
+        if (this == null || this.id == 'category_all'){
             let i
             let max=3
             for (i=0; i<max; i++){
@@ -79,15 +115,12 @@ function print(wrapper, category){
     }
 }
 
-function myFunction(x) {
-    if (x.matches) { // If media query matches
-      console.log('smol')
-      document.getElementById("portfolioWrapper").innerHTML=("")
-      document.getElementById("portfolioWrapper").classList.add("mobile")
-    } else {
-        console.log('big')
-        document.getElementById("portfolioWrapper").classList.remove("mobile")
-        portfolio();
-    }
-  }
-  
+function navMenuHide(){
+document.getElementById("navMenu").classList.remove("animated", "slideInDown")
+document.getElementById("navMenu").classList.add("animated", "slideOutUp", "delay-2s")
+
+}
+function navMenuShow(){
+    document.getElementById("navMenu").classList.remove("animated", "slideOutUp", "delay-2s")
+    document.getElementById("navMenu").classList.add("animated", "slideInDown")
+}
