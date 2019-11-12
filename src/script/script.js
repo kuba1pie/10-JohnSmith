@@ -1,6 +1,6 @@
 import portfolioData from './portfolio.json'
 window.onload = function() {
-    portfolioMenu();
+    portfolioMenu(); // Create menu of portfolio section
     let x = window.matchMedia("(max-width: 1230px)")
     resize(x) // Call listener function at run time
     x.addListener(resize) // Attach listener function on state changes 
@@ -47,7 +47,7 @@ function resize(x) {
 function portfolioMenu(){
     let wrapperMenu = document.getElementById("portfolioMenu")
     wrapperMenu.innerHTML=("")
-    addItem(wrapperMenu, 'All', 'category_all', "all", filter)
+    addItem(wrapperMenu, 'All', 'category_all', "category", filter)
     let i
     for (i = 0; i<portfolioData.categories.length; i++){
         let catName = portfolioData.categories[i].name
@@ -64,28 +64,40 @@ function addItem(wrapper, item, id, cla, filter, bg){
     wrapper.appendChild(el)
 }
 function filter(){
+    // Reset  color of portfolioMenu items
+    let menu = document.getElementById('portfolioMenu').childNodes
+    let i
+    for (i = 0; i < menu.length; i++) {
+        menu[i].style.color = "black"
+    }
+    // Select wrapper for portfolio
     let b = document.getElementById('portfolioWrapper')
-
-    if(b){
-        if (this == null || this.id == 'category_all'){ // jeżeli nie ma kat. lub jest all
+    if(b){ // portfolioWrapper - exsist when desktop version
+        if (this == null || this.id == 'category_all'){ // if no category (on start) or when set all
             let i
             let max=3
+            document.getElementById('category_all').style.color = "#a91aef"
             for (i=0; i<max; i++){
                 print(b, i)
             }
-        } else { // jeżeli jest kategoria
+            
+        } else { // if category don't set
+            this.style.color = "#a91aef"
             document.getElementById('portfolioWrapper').innerHTML=""
             let category=this.id.replace("category_", "")
             print(b, category)
+            
         }
-    } else{
-        let a = document.getElementById("portfolioWrapper")
+    } else{ // portfolioWrapper - doesnt't exsist when mobile version
+        let a = document.getElementById('portfolioWrapper')
         if (a) {
-            a.remove()
+            console.log(a)
+            a.innerHTML=""
         }
         let wrapper = document.createElement("div")
         wrapper.classList.add("wrapper")
         wrapper.id='portfolioWrapper'
+        console.log(this)
         //wstawia wrapper za wybranym
         this.parentNode.insertBefore(wrapper, this.nextSibling);
         if (this == null || this.id == 'category_all'){
@@ -116,9 +128,8 @@ function print(wrapper, category){
 }
 
 function navMenuHide(){
-document.getElementById("navMenu").classList.remove("animated", "slideInDown")
-document.getElementById("navMenu").classList.add("animated", "slideOutUp", "delay-2s")
-
+    document.getElementById("navMenu").classList.remove("animated", "slideInDown")
+    document.getElementById("navMenu").classList.add("animated", "slideOutUp", "delay-2s")
 }
 function navMenuShow(){
     document.getElementById("navMenu").classList.remove("animated", "slideOutUp", "delay-2s")
