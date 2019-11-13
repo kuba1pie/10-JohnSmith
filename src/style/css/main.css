@@ -32,7 +32,7 @@ header {
     min-height: calc(100vh - 60px);
     flex-direction: column;
     justify-content: space-around;
-    background-image: url("../img/Background.png");
+    background-image: url("../img/background.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -106,7 +106,7 @@ main .about {
       color: #494949;
       padding-bottom: 100px; }
   main .about .photo {
-    background-image: url("../img/author.png");
+    background-image: url("../img/author.webp");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100%; }
@@ -189,7 +189,7 @@ main .services {
       main .services .wrapper .item .h2 {
         text-transform: capitalize; }
 main .testimonial {
-  background-image: url("../img/mountain.png");
+  background-image: url("../img/mountain.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -288,6 +288,9 @@ main .portfolio {
         animation-name: hover;
         animation-duration: 20s;
         background-color: #eeeeee; }
+    main .portfolio .wrapper .zoomPortfolio {
+      background-color: red;
+      display: sticky; }
 main .experience {
   background-image: linear-gradient(40deg, #dbdbdb 13%, #290a59 13%, #a21af0 13%, #ff0072 87%);
   color: #ffffff; }
@@ -323,7 +326,7 @@ main .blog .wrapper {
     main .blog .wrapper .item p {
       color: #494949; }
 main .email {
-  background-image: url("../img/map.png");
+  background-image: url("../img/map.webp");
   background-repeat: no-repeat;
   background-position: center bottom; }
   main .email .board {

@@ -177,7 +177,6 @@ function resize() {
     }
 }
 function skills() {
-    
     let i
     for (i=0; i<skillsData.skills.length; i++){
         let wrapper = document.getElementById("skillsWrapper")
@@ -189,7 +188,6 @@ function skills() {
         div.innerHTML=divHtml
         div.classList.add('item')
         wrapper.appendChild(div)
-        console.log(procent)
         document.getElementById('skill_'+id).style.width = procent+'%'
     }
 }
