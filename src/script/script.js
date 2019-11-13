@@ -8,7 +8,7 @@ window.onload = function() {
 }
 function addItem(wrapper, item, id, cla, portfolioFilter, bg){
     let el = document.createElement("div")
-    el.classList.add(cla)
+    el.classList.add(cla,'animated', 'bounceIn', 'slow')
     el.style.backgroundImage = "url('./src/style/"+ bg +".png')";
     el.id = id
     el.innerHTML = item
@@ -41,12 +41,23 @@ function portfolioAddWrapper(wrapperPlace){
 function portfolioFilter(){
     portfolioResetColors();
     let targetID=this.id
+    this.removeEventListener("click", portfolioFilter)
+    this.addEventListener("click", portfolioMenuButton)
     portfolioSetWrapper(targetID);
     this.style.color = "#a91aef"
     document.getElementById('portfolioWrapper').innerHTML=""
     let category=this.id.replace("category_", "")
     let wrapper = document.getElementById('portfolioWrapper')
     print(wrapper, category)
+    if (x.matches){
+
+    } else{
+        let i
+        for (i = 1; i<portfolioData.categories.length+1; i++){
+            let div = document.getElementById("portfolioMenu").childNodes[i]
+            div.addEventListener("click", portfolioFilter)
+        }
+    }
 }
 function portfolioMenu(){
     let wrapperMenu = document.getElementById("portfolioMenu")
@@ -56,6 +67,24 @@ function portfolioMenu(){
     for (i = 0; i<portfolioData.categories.length; i++){
         let catName = portfolioData.categories[i].name
         addItem(wrapperMenu, catName, "category_"+i, "category", portfolioFilter)
+    }
+}
+function portfolioMenuButton(){
+    if(x.matches){
+        let wrapper=document.getElementById("portfolioWrapper")
+        if (wrapper){
+            wrapper.remove();
+        }
+        portfolioResetColors()
+    }
+    if(this.id == "category_all"){
+        if(x.matches){
+            this.addEventListener("click", portfolioShowAll)
+        }
+    } else {
+        if(x.matches){
+            this.addEventListener("click", portfolioFilter)
+        }
     }
 }
 function portfolioSetWrapper(aim){
@@ -79,6 +108,8 @@ function portfolioShowAll(){
     document.getElementById('category_all').style.color = "#a91aef"
     portfolioWrapperRemove()
     if (x.matches){
+        this.removeEventListener("click", portfolioShowAll)
+        this.addEventListener("click", portfolioMenuButton)
         let targetID = document.getElementById('portfolioMenu').childNodes[0]
         let wrapper = document.createElement("div")
         wrapper.classList.add("wrapper")
@@ -91,6 +122,11 @@ function portfolioShowAll(){
         for (i=0; i<max; i++){
             print(b, i)
         } 
+        let j
+        for (j = 1; j<portfolioData.categories.length+1; j++){
+            let div = document.getElementById("portfolioMenu").childNodes[j]
+            div.addEventListener("click", portfolioFilter)
+        }
     } else {
         //document.getElementById('portfolioWrapper').innerHTML=""
         portfolioAddWrapper(document.getElementById('portfolio')) //Utwórz wrapper portfolio
@@ -100,6 +136,7 @@ function portfolioShowAll(){
         for (i=0; i<max; i++){
             print(b, i)
         } 
+
     }
 }
 function portfolioResetColors(){
