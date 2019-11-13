@@ -25,7 +25,7 @@ main
             padding-left: 12px
     .about
         grid-template-columns: 1fr
-        grid-template-rows: auto auto
+        grid-template-rows: auto auto 300px
         background-image: initial
         .id
             grid-column: 1
@@ -35,16 +35,17 @@ main
             padding: 1em
             p
                 padding: 0
+        .photo
+            grid-column: 1
+            grid-row: 3
+            width: 300px
+            margin: 0 auto
         .skills
             grid-column: 1
             grid-row: 2
             width: 100%
+            max-width: 800px
             margin: 0 auto
-            background:
-                image: url('../img/author.png')
-                repeat: no-repeat
-                position: center bottom
-                size: auto 100%
     .contact
         padding: 1em
         margin: 0 auto
@@ -95,7 +96,21 @@ main
             grid-column: 1
             .item
                 margin: 0.5em auto
-                width: 100%
+                width: 400px
+                padding: 0
+                grid-template-rows: auto 1fr 0
+                .name, .desc
+                    opacity: 1
+                    background-color: #eeeeee
+                    margin: 0 auto
+                .name
+                    margin: 0
+                    padding: 0
+                    h3
+                        text-align: center
+                &:hover
+                    .name, .desc
+                        animation-name: initial
     .experience
         .item
             padding: 1em

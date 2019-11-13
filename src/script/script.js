@@ -1,10 +1,12 @@
 import portfolioData from './portfolio.json'
+import skillsData from './skills.json'
 let x = window.matchMedia("(max-width: 1230px)")
 window.onload = function() {
     window.onscroll = navMenuScroll;
     portfolioMenu(); // Create menu of portfolio section
     resize() // Call listener function at run time
     x.addListener(resize) // Attach listener function on state changes 
+    skills()
 }
 function addItem(wrapper, item, id, cla, portfolioFilter, bg){
     let el = document.createElement("div")
@@ -172,5 +174,22 @@ function resize() {
     if (x.matches){
     } else {
         portfolioShowAll();
+    }
+}
+function skills() {
+    
+    let i
+    for (i=0; i<skillsData.skills.length; i++){
+        let wrapper = document.getElementById("skillsWrapper")
+        let id = (skillsData.skills[i].id)
+        let name = (skillsData.skills[i].name)
+        let procent = (skillsData.skills[i].progress)
+        let divHtml = "<h4>"+name+ "</h4><div class='bar'><div class='procent' id='skill_"+ id +"'></div><div class='gradient'></div></div>"
+        let div = document.createElement("div")
+        div.innerHTML=divHtml
+        div.classList.add('item')
+        wrapper.appendChild(div)
+        console.log(procent)
+        document.getElementById('skill_'+id).style.width = procent+'%'
     }
 }

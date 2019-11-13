@@ -85,14 +85,10 @@ main
             font-size: 18px
     .about
         background-color: #ffffff
-        background:
-            image: url('../img/author.png')
-            repeat: no-repeat
-            position: center bottom
-            size: contain
         display: grid
-        grid-template-columns: 1fr 400px 1fr 
+        grid-template-columns: 1fr minmax(auto, 400px) 1fr 
         margin: 0 auto
+        padding-bottom: 0px
         min-height: 100vh
         .id
             grid-column: 1
@@ -116,11 +112,42 @@ main
                 letter-spacing: 1.13px
                 color: #494949
                 padding-bottom: 100px
+        .photo
+            background:
+                image: url('../img/author.png')
+                repeat: no-repeat
+                position: center bottom
+                size: 100%
         .skills
-            margin: 20%
             text-align: center
             grid-column: 3
             color: #333333
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            padding-bottom: 40px
+            .item
+                padding: 0px 30px
+                h4
+                    text-transform: uppercase
+                .bar
+                    width: 100%
+                    height: 20px
+                    background-color: #FF0072
+                    border-radius: 10px
+                    display: flex
+                    .procent
+                        width: 10%
+                        height: 100%
+                        background-color: #dddddd
+                        border-radius: 10px 0px 0px 10px
+                    .gradient
+                        width: 50px
+                        transform: skewX(50deg)
+                        height: 100%
+                        margin-left: -12px
+                        background-image: linear-gradient(to right, #a21af0, #FF0072)
+                        border-radius: 0px 0px 20px 0px
     .contact
         display: flex
         justify-content: space-between
@@ -243,7 +270,7 @@ main
             .item
                 margin: 10px
                 width: 100%
-                max-width: 500px
+                max-width: 400px
                 min-height: 400px
                 background:
                     size: cover
@@ -251,7 +278,7 @@ main
                     repeat: no-repeat
                 text-align: center
                 display: grid
-                grid-template-rows: minmax(10%, auto) 1fr minmax(10%, auto)
+                grid-template-rows: minmax(10%, auto) 1fr auto
                 .name
                     opacity: 0
                     grid-row: 1
@@ -260,6 +287,7 @@ main
                 .desc
                     opacity: 0
                     grid-row: 3
+                    display: none
                 @keyframes hover
                     0%
                         opacity: 0
