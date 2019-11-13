@@ -1,116 +1,119 @@
 import portfolioData from './portfolio.json'
+let x = window.matchMedia("(max-width: 1230px)")
 window.onload = function() {
+    window.onscroll = navMenuScroll;
     portfolioMenu(); // Create menu of portfolio section
-    let x = window.matchMedia("(max-width: 1230px)")
-    resize(x) // Call listener function at run time
+    resize() // Call listener function at run time
     x.addListener(resize) // Attach listener function on state changes 
-    
-    window.onscroll = function (e) {  
-        if (this.oldScroll > this.scrollY){
-            navMenuShow();
-            this.oldScroll = this.scrollY
-        } else {
-            navMenuHide();
-            this.oldScroll = this.scrollY
-        } 
-    }
 }
-function resize(x) {
-    if (x.matches) { // If media query matches
-      console.log('smol')
-      let a = document.getElementById('portfolioWrapper')
-      if (a){
-          a.remove();
-      }
-    } else {
-        console.log('big')
-        let a = document.getElementById('portfolioWrapper')
-        if (a){
-            a.remove();
-            console.log('biggggg')
-            let wrapper = document.createElement("div")
-            wrapper.classList.add("wrapper")
-            wrapper.id='portfolioWrapper'
-            document.getElementById("portfolio").append(wrapper)
-            filter();
-        } else {
-            let wrapper = document.createElement("div")
-            wrapper.classList.add("wrapper")
-            wrapper.id='portfolioWrapper'
-            document.getElementById("portfolio").append(wrapper)
-            filter();
-        }    
-        
-    }
-}
-
-function portfolioMenu(){
-    let wrapperMenu = document.getElementById("portfolioMenu")
-    wrapperMenu.innerHTML=("")
-    addItem(wrapperMenu, 'All', 'category_all', "category", filter)
-    let i
-    for (i = 0; i<portfolioData.categories.length; i++){
-        let catName = portfolioData.categories[i].name
-        addItem(wrapperMenu, catName, "category_"+i, "category", filter)
-    } 
-}
-function addItem(wrapper, item, id, cla, filter, bg){
+function addItem(wrapper, item, id, cla, portfolioFilter, bg){
     let el = document.createElement("div")
     el.classList.add(cla)
     el.style.backgroundImage = "url('./src/style/"+ bg +".png')";
     el.id = id
     el.innerHTML = item
-    el.addEventListener("click", filter);
+    el.addEventListener("click", portfolioFilter);
     wrapper.appendChild(el)
 }
-function filter(){
+function navMenuHide(){
+    document.getElementById("navMenu").classList.remove("animated", "slideInDown")
+    document.getElementById("navMenu").classList.add("animated", "slideOutUp", "delay-2s")
+}
+function navMenuScroll(){
+    if (this.oldScroll > this.scrollY){
+        navMenuShow();
+        this.oldScroll = this.scrollY
+    } else {
+        navMenuHide();
+        this.oldScroll = this.scrollY
+    } 
+}
+function navMenuShow(){
+    document.getElementById("navMenu").classList.remove("animated", "slideOutUp", "delay-2s")
+    document.getElementById("navMenu").classList.add("animated", "slideInDown")
+}
+function portfolioAddWrapper(wrapperPlace){
+    let wrapper = document.createElement("div")
+    wrapper.classList.add("wrapper")
+    wrapper.id='portfolioWrapper'
+    wrapperPlace.append(wrapper)
+}
+function portfolioFilter(){
+    portfolioResetColors();
+    let targetID=this.id
+    portfolioSetWrapper(targetID);
+    this.style.color = "#a91aef"
+    document.getElementById('portfolioWrapper').innerHTML=""
+    let category=this.id.replace("category_", "")
+    let wrapper = document.getElementById('portfolioWrapper')
+    print(wrapper, category)
+}
+function portfolioMenu(){
+    let wrapperMenu = document.getElementById("portfolioMenu")
+    wrapperMenu.innerHTML=("")
+    addItem(wrapperMenu, 'All', 'category_all', "category", portfolioShowAll)
+    let i
+    for (i = 0; i<portfolioData.categories.length; i++){
+        let catName = portfolioData.categories[i].name
+        addItem(wrapperMenu, catName, "category_"+i, "category", portfolioFilter)
+    }
+}
+function portfolioSetWrapper(aim){
+    if (x.matches){
+        portfolioWrapperRemove()
+        let wrapper = document.createElement("div")
+        wrapper.classList.add("wrapper")
+        wrapper.id='portfolioWrapper'
+        let cele = document.getElementById(aim)
+        cele.parentNode.insertBefore(wrapper, cele.nextSibling);
+    } else {
+        let target = document.getElementById('portfolioWrapper')
+        if (target){
+        } else{
+            portfolioAddWrapper(document.getElementById('portfolio')) //Utwórz wrapper portfolio
+        }
+    }
+}
+function portfolioShowAll(){
+    portfolioResetColors()
+    document.getElementById('category_all').style.color = "#a91aef"
+    portfolioWrapperRemove()
+    if (x.matches){
+        let targetID = document.getElementById('portfolioMenu').childNodes[0]
+        let wrapper = document.createElement("div")
+        wrapper.classList.add("wrapper")
+        wrapper.id='portfolioWrapper'
+        targetID.parentNode.insertBefore(wrapper, targetID.nextSibling)
+        let b = document.getElementById('portfolioWrapper')
+        b.innerHTML=""
+        let i
+        let max=(document.getElementById('portfolioMenu').childNodes.length-2)
+        for (i=0; i<max; i++){
+            print(b, i)
+        } 
+    } else {
+        //document.getElementById('portfolioWrapper').innerHTML=""
+        portfolioAddWrapper(document.getElementById('portfolio')) //Utwórz wrapper portfolio
+        let b = document.getElementById('portfolioWrapper')
+        let i
+        let max=(document.getElementById('portfolioMenu').childNodes.length-1)
+        for (i=0; i<max; i++){
+            print(b, i)
+        } 
+    }
+}
+function portfolioResetColors(){
     // Reset  color of portfolioMenu items
     let menu = document.getElementById('portfolioMenu').childNodes
     let i
     for (i = 0; i < menu.length; i++) {
         menu[i].style.color = "black"
     }
-    // Select wrapper for portfolio
-    let b = document.getElementById('portfolioWrapper')
-    if(b){ // portfolioWrapper - exsist when desktop version
-        if (this == null || this.id == 'category_all'){ // if no category (on start) or when set all
-            let i
-            let max=3
-            document.getElementById('category_all').style.color = "#a91aef"
-            for (i=0; i<max; i++){
-                print(b, i)
-            }
-            
-        } else { // if category don't set
-            this.style.color = "#a91aef"
-            document.getElementById('portfolioWrapper').innerHTML=""
-            let category=this.id.replace("category_", "")
-            print(b, category)
-            
-        }
-    } else{ // portfolioWrapper - doesnt't exsist when mobile version
-        let a = document.getElementById('portfolioWrapper')
-        if (a) {
-            console.log(a)
-            a.innerHTML=""
-        }
-        let wrapper = document.createElement("div")
-        wrapper.classList.add("wrapper")
-        wrapper.id='portfolioWrapper'
-        console.log(this)
-        //wstawia wrapper za wybranym
-        this.parentNode.insertBefore(wrapper, this.nextSibling);
-        if (this == null || this.id == 'category_all'){
-            let i
-            let max=3
-            for (i=0; i<max; i++){
-                print(wrapper, i)
-            }
-        } else {
-            wrapper.innerHTML=""
-            let category=this.id.replace("category_", "")
-            print(wrapper, category)
-        }
+}
+function portfolioWrapperRemove(){
+    let target = document.getElementById('portfolioWrapper')
+    if(target){
+        target.remove();
     }
 }
 function print(wrapper, category){
@@ -126,12 +129,11 @@ function print(wrapper, category){
         addItem(wrapper, divHtml, id, cla, null ,bg )
     }
 }
-
-function navMenuHide(){
-    document.getElementById("navMenu").classList.remove("animated", "slideInDown")
-    document.getElementById("navMenu").classList.add("animated", "slideOutUp", "delay-2s")
-}
-function navMenuShow(){
-    document.getElementById("navMenu").classList.remove("animated", "slideOutUp", "delay-2s")
-    document.getElementById("navMenu").classList.add("animated", "slideInDown")
+function resize() {
+    portfolioWrapperRemove()
+    portfolioResetColors()
+    if (x.matches){
+    } else {
+        portfolioShowAll();
+    }
 }
