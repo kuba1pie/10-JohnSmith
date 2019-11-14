@@ -531,13 +531,38 @@ footer {
     main .experience .item .work_desc {
       max-width: initial;
       margin: 1em; }
-  main .blog .wrapper .item {
-    text-align: center;
-    padding: 0 1em;
-    margin: 0 auto;
-    min-width: initial; }
-  main section {
+  main .email {
     padding: 1em;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+    main .email .board {
+      grid-template-columns: 1fr; }
+      main .email .board .title {
+        grid-row: 1;
+        grid-column: 1; }
+      main .email .board .form {
+        grid-row: 2/4;
+        grid-column: 1;
+        margin: 1em auto;
+        min-width: 90%;
+        display: grid; }
+        main .email .board .form .name {
+          grid-column: 1;
+          grid-row: 1; }
+        main .email .board .form .phone {
+          grid-column: 1;
+          grid-row: 2; }
+        main .email .board .form .email {
+          grid-column: 1;
+          grid-row: 3; }
+        main .email .board .form .message {
+          grid-column: 1;
+          grid-row: 4;
+          height: 70px; }
+        main .email .board .form input {
+          padding: 0.5em;
+          margin: 0.5em 0.25em; }
+      main .email .board button {
+        grid-column: 1;
+        grid-row: 5; } }
 
 /*# sourceMappingURL=main.css.map */

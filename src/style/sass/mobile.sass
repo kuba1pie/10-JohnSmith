@@ -147,13 +147,37 @@ main
             .work_desc
                 max-width: initial
                 margin: 1em
-    .blog
-        .wrapper
-            .item
-                text-align: center
-                padding: 0 1em
-                margin: 0 auto
-                min-width: initial
-    section
+    .email
+        .board
+            grid-template-columns: 1fr 
+            .title
+                grid-row: 1
+                grid-column: 1
+            .form
+                grid-row: 2/4
+                grid-column: 1
+                margin: 1em auto
+                min-width: 90%
+                display: grid
+                .name
+                    grid-column: 1
+                    grid-row: 1
+                .phone
+                    grid-column: 1
+                    grid-row: 2
+                .email
+                    grid-column: 1
+                    grid-row: 3
+                .message
+                    grid-column: 1
+                    grid-row: 4
+                    height: 70px
+                input
+                    padding: 0.5em
+                    margin: 0.5em 0.25em
+            button
+                grid-column: 1
+                grid-row: 5
+        section
         padding: 1em
         margin: 0 auto
