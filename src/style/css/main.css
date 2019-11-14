@@ -341,22 +341,23 @@ main .email {
     main .email .board .form {
       grid-row: 2/4;
       grid-column: 1/4;
-      width: 100%;
       margin: 1em auto;
-      width: auto; }
-    main .email .board .name {
-      grid-column: 1;
-      grid-row: 2; }
-    main .email .board .phone {
-      grid-column: 2;
-      grid-row: 2; }
-    main .email .board .email {
-      grid-column: 3;
-      grid-row: 2; }
-    main .email .board .message {
-      grid-column: 1/4;
-      width: 100%;
-      height: 70px; }
+      display: grid; }
+      main .email .board .form .name {
+        grid-column: 1;
+        grid-row: 2; }
+      main .email .board .form .phone {
+        grid-column: 2;
+        grid-row: 2; }
+      main .email .board .form .email {
+        grid-column: 3;
+        grid-row: 2; }
+      main .email .board .form .message {
+        grid-column: 1/4;
+        height: 70px; }
+      main .email .board .form input {
+        padding: 0.5em;
+        margin: 0.5em 0.25em; }
     main .email .board button {
       grid-column: 1/4;
       grid-row: 5;
@@ -380,11 +381,28 @@ footer {
   color: #494949; }
 
 @media only screen and (max-width: 1230px) {
+  header button {
+    position: absolute;
+    right: 20px; }
   header nav {
-    display: none; }
+    display: none;
+    height: 100vh;
+    width: 400px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: initial;
+    align-items: initial;
+    background-color: #333333; }
     header nav a {
-      font-size: 30px; }
+      display: block;
+      padding: 0.5em;
+        padding-left: 1em;
+      margin-left: 1em; }
   header .name {
+    display: flex;
+    position: fixed;
+    top: 0px;
+    z-index: -1;
     height: 75vh;
     background-position-x: 72%;
     padding: 2em 1em; }

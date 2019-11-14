@@ -2,7 +2,10 @@ import portfolioData from './portfolio.json'
 import skillsData from './skills.json'
 let x = window.matchMedia("(max-width: 1230px)")
 window.onload = function() {
-    window.onscroll = navMenuScroll;
+    if(x.matches == false) {
+        window.onscroll = navMenuScroll; 
+    }
+    document.getElementsByTagName("button").addEventListener("click", showMenu)
     portfolioMenu(); // Create menu of portfolio section
     resize() // Call listener function at run time
     x.addListener(resize) // Attach listener function on state changes 
@@ -11,7 +14,7 @@ window.onload = function() {
 function addItem(wrapper, item, id, cla, portfolioFilter, bg){
     let el = document.createElement("div")
     el.classList.add(cla,'animated', 'bounceIn', 'slow')
-    el.style.backgroundImage = "url('./src/style/"+ bg +".png')";
+    el.style.backgroundImage = "url('./src/style/img/"+ bg +".webp')";
     el.id = id
     el.innerHTML = item
     el.addEventListener("click", portfolioFilter);
@@ -175,6 +178,9 @@ function resize() {
     } else {
         portfolioShowAll();
     }
+}
+function showMenu(){
+    document.getElementsByTagName("nav").display="initial"
 }
 function skills() {
     let i
