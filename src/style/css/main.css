@@ -476,6 +476,8 @@ footer {
     grid-template-columns: 60% 40% 0;
     grid-template-rows: auto auto auto;
     justify-content: space-around; }
+    main .testimonial h3 {
+      font-size: 1.4em; }
     main .testimonial .quote {
       text-align: center;
       grid-row: 2/4;
