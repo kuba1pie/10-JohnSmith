@@ -531,6 +531,11 @@ footer {
     main .experience .item .work_desc {
       max-width: initial;
       margin: 1em; }
+  main .blog .wrapper .item {
+    text-align: center;
+    padding: 0 1em;
+    margin: 0 auto;
+    min-width: initial; }
   main .email {
     padding: 1em;
     margin: 0 auto; }
