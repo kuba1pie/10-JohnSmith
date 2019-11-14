@@ -1,0 +1,31 @@
+/* Toggler Animation */
+ .toggler:checked + .hamburger > div 
+    transform: rotate(135deg)
+  
+  
+  /* Turns Lines Into X */
+   .toggler:checked + .hamburger > div:before,
+   .toggler:checked + .hamburger > div:after 
+    top: 0
+    transform: rotate(90deg)
+  
+  
+  /* Rotate On Hover When Checked */
+   .toggler:checked:hover + .hamburger > div 
+    transform: rotate(225deg)
+  
+  
+  /* Show Menu */
+   .toggler:checked ~ .menu 
+    visibility: visible
+  
+  
+   .toggler:checked ~ .menu > div 
+    transform: scale(1)
+    transition-duration: var(--menu-speed)
+  
+  
+   .toggler:checked ~ .menu > div > div 
+    opacity: 1
+    transition:  opacity 0.4s ease 0.4s
+  

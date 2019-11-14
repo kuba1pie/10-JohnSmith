@@ -4,8 +4,10 @@ let x = window.matchMedia("(max-width: 1230px)")
 window.onload = function() {
     if(x.matches == false) {
         window.onscroll = navMenuScroll; 
+    } else {
+        window.onscroll = closeMenu;
     }
-    document.getElementsByTagName("button").addEventListener("click", showMenu)
+    document.getElementById("buttonNav").addEventListener("click", showMenu)
     portfolioMenu(); // Create menu of portfolio section
     resize() // Call listener function at run time
     x.addListener(resize) // Attach listener function on state changes 
@@ -31,7 +33,7 @@ function navMenuScroll(){
     } else {
         navMenuHide();
         this.oldScroll = this.scrollY
-    } 
+    }
 }
 function navMenuShow(){
     document.getElementById("navMenu").classList.remove("animated", "slideOutUp", "delay-2s")
@@ -177,10 +179,24 @@ function resize() {
     if (x.matches){
     } else {
         portfolioShowAll();
+        closeMenu();
+        document.getElementById("navMenu").style.width = "100%"
     }
 }
 function showMenu(){
-    document.getElementsByTagName("nav").display="initial"
+    document.getElementById("navMenu").classList.add("showMenu")
+    document.getElementById("navMenu").style.width = "400px"
+    document.getElementById("buttonNav").removeEventListener("click", showMenu)
+    document.getElementById("buttonNav").addEventListener("click", closeMenu)
+    document.getElementById("buttonNav").classList.toggle("opened")
+    
+}
+function closeMenu(){
+    document.getElementById("navMenu").style.width = "0"
+    document.getElementById("navMenu").classList.remove("showMenu")
+    document.getElementById("buttonNav").addEventListener("click", showMenu)
+    document.getElementById("buttonNav").removeEventListener("click", closeMenu)
+    document.getElementById("buttonNav").classList.toggle("opened")
 }
 function skills() {
     let i
