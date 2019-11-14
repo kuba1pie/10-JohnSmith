@@ -1,3 +1,3 @@
 # 10-JohnSmith
 
-npm run build
+Preview: https://kuba1pie.github.io/10-JohnSmith/
