@@ -186,6 +186,7 @@ function resize() {
 function showMenu(){
     document.getElementById("navMenu").classList.add("showMenu")
     document.getElementById("navMenu").style.maxWidth = "400px"
+    document.getElementById("navMenu").style.width = "100%"
     document.getElementById("buttonNav").removeEventListener("click", showMenu)
     document.getElementById("buttonNav").addEventListener("click", closeMenu)
     document.getElementById("buttonNav").classList.toggle("opened")
